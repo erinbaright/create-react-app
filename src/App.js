@@ -1,4 +1,4 @@
-import './App.css';
+// import './App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { toHaveDescription } from '@testing-library/jest-dom/dist/matchers';
@@ -46,8 +46,6 @@ function App() {
 
   
   if (!parks) return <h2></h2>
-
-  console.log(designation[0].images[0].url)
   
   return (
     <div className="parks">
@@ -63,14 +61,14 @@ function App() {
       <span className='grid'>
         
         
-        <div className="park-pic park-1">{parks[4].images[0].url}</div>
-        <div className="park-pic park-2">{parks[6].images[0].url}</div>
-        <div className="park-pic park-3">{parks[12].images[0].title}</div>
-        <div className="park-pic park-4">{parks[29].images[0].title}</div>
-        <div className="park-pic park-5">{parks[14].images[0].title}</div>
-        <div className="park-pic park-6">{parks[20].images[0].title}</div>
-        <div className="park-pic park-7">{parks[25].images[0].title}</div>
-        <div className="park-pic park-8">{parks[32].images[0].title}</div>
+        <div className="park-pic park-1"><img src={parks[4].images[0].url}/></div>
+        <div className="park-pic park-2"><img src={parks[6].images[0].url}/></div>
+        <div className="park-pic park-3"><img src={parks[12].images[0].url}/></div>
+        <div className="park-pic park-4"><img src={parks[29].images[0].url}/></div>
+        <div className="park-pic park-5"><img src={parks[14].images[0].url}/></div>
+        <div className="park-pic park-6"><img src={parks[20].images[0].url}/></div>
+        <div className="park-pic park-7"><img src={parks[25].images[0].url}/></div>
+        <div className="park-pic park-8"><img src={parks[32].images[0].url}/></div>
         <img src={parkPic}></img>
       </span>
     </div>
