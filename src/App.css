@@ -1,26 +1,36 @@
-body {
-  /* background-color: lightgreen */
-}
 
 .parks {
   text-align: center;
   margin: 0 auto;
 }
 
-.grid {
+.the-park-pic {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+
+.park-grid {
   display: grid;
   justify-content: center;
-  /* align-content: center; */
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-columns: repeat(4, 5vw);
-  grid-gap: 15px;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 10px;
+  margin: 20px;
 }
 
 .park-pic {
-  width: 100%;
-  height: 100%;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   display: block;
+  justify-content: center;
+  align-items: center;
 }
 
 .park-1 {
