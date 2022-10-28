@@ -1,31 +1,76 @@
-import './App.css';
 import { useEffect, useState } from 'react';
+import './App.css';
 import axios from 'axios';
 import Home from './Home.jsx'
-import { toHaveDescription } from '@testing-library/jest-dom/dist/matchers';
+// import { toHaveDescription } from '@testing-library/jest-dom/dist/matchers';
 
 function App() {
-  const [parks, setParks] = useState([]);
+  const [parks, setParks] = useState();
+  const [current, setCurrent] = useState(0);
 
+  const getData = async () => {
+    const response = await axios.get(`https://developer.nps.gov/api/v1/parks?stateCode=NY&api_key=A1CBdPvAMjo2mZbonnfGWdOQPUsDEafOQbdO4LTx`, {
+      headers: { Accept: "application/json" },
+    });
+    // console.log(parkNames)
+    const parkNames = Object.keys(response.data)
+    const nyParks = Object.entries(response.data)
+    setParks(response.data);
+    console.log(response.data)
+  }
   useEffect(() => {
-    const getData = async () => {
-      const response = await axios.get(`https://developer.nps.gov/api/v1/parks?stateCode=CA&api_key=wsocPvzImHobFSy9eqfISnL5LT3UCLNmCavydLOp`, {
-        headers: { Accept: "application/json" },
-      });
-      setParks(response.data.data);
-      // console.log(response.data.data)
-    }
-
     getData();
-
   }, []);
+  
+  if (current >= 33) {
+    setCurrent(0)
+  }
 
+  let negative = () => {
+    if (current - 1 === -1) {
+      setCurrent(32)
+    } else {
+      setCurrent(current - 1)
+    }
+  }
   
   if (!parks) return <h2></h2>
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const response = await axios.get(`https://developer.nps.gov/api/v1/parks?stateCode=CA&api_key=wsocPvzImHobFSy9eqfISnL5LT3UCLNmCavydLOp`, {
+  //       headers: { Accept: "application/json" },
+  //     });
+  //     setParks(response.data.data);
+  //     // console.log(response.data.data)
+  //   }
+
+  //   getData();
+
+  // }, []);
+console.log(getData.parkNames)
+  
   
   return (
-    <div className="App">
-      <Home parks={parks} />
+    <div className="parks">
+      {/* <Home parks={parks} /> */}
+      <header className="header">
+          <h1>National Parks of California</h1>
+        <img id="nps-logo" src="https://i.imgur.com/atIvOpI.png" alt="National Park Service logo" width="80" height="100"></img>
+          <h2>Highlights of The Golden State</h2>
+      </header>
+      <button className="btn" onClick={() =>negative()}>Previous Park</button>
+      <button className="btn" onClick={() => (setCurrent(current + 1))}>Next Park</button>
+      {/* {getData.nyParks.length > 0 && (
+        name={}
+      <span className='park-pic'>
+        <div className='fullName'>{parks.fullName}</div>
+        <img className='the-park-pic' src={parks.images[0]}></img>
+        <div className='caption'>{ parks.caption}</div>
+        <div className='description'>{parks.desription}</div>
+        <div className='weather'>{ parks.weatherInfo}</div>
+      </span>
+      )} */}
+      {/* <button className='button' onClick={getData}>Next Park</button> */}
 
     </div>
   );
