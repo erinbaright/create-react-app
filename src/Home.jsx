@@ -22,10 +22,10 @@ if(!parks) return <h1></h1>
           <h2>Highlights of The Golden State</h2>
         </header>
         
-        <div>
+        <div className='flex-container'>
           {parks.map((park) => (
-            <div className='park-grid'> 
-              <img className='the-park-pic' src={park.images[0].url}></img>
+            <div > 
+             <img className='the-park-pic' src={park.images[0].url}></img>
             </div>
           ))}
         </div>
