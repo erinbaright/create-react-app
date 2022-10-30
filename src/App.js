@@ -1,11 +1,13 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import Home from './Home.jsx'
+import Home from './Home.jsx';
+import Modal from './Modal.jsx';
 import { toHaveDescription } from '@testing-library/jest-dom/dist/matchers';
 
 function App() {
   const [parks, setParks] = useState([]);
+  const [show, setShow] = useState(false)
 
   useEffect(() => {
     const getData = async () => {
@@ -26,7 +28,10 @@ function App() {
   return (
     <div className="App">
       <Home parks={parks} />
-
+      <button onClick={() => setShow(true)}>Show Modal</button>
+      <Modal title="My Modal" onClose={() => setShow(false)} show={show}>
+        <p>{ parks.fullName }</p>
+      </Modal>  
     </div>
   );
 }
