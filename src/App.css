@@ -21,9 +21,11 @@ header {
 }
 
 .the-park-pic:hover {
-  transform: scale(1.13);
-  transition: 500ms ease-in-out;
+  transform: scale(1.17);
+  transition: 200ms ease-in-out;
   border-radius: 70px;
+  box-shadow: 5px 3px 5px rgb(155, 155, 155);
+  filter: brightness(1.1);
 }
 
 .flex-container {
