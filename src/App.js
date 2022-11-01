@@ -28,10 +28,7 @@ function App() {
   return (
     <div className="App">
       <Home parks={parks} />
-      <button onClick={() => setShow(true)}>Show Modal</button>
-      <Modal title="My Modal" onClose={() => setShow(false)} show={show}>
-        <p>{ parks.fullName }</p>
-      </Modal>  
+      
     </div>
   );
 }

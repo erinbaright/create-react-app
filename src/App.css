@@ -15,9 +15,15 @@ header {
   display: block;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
+  border-radius: 10px;
   border: 1px solid black;
   /* flex-basis: 33.333333%; */
+}
+
+.the-park-pic:hover {
+  transform: scale(1.13);
+  transition: 500ms ease-in-out;
+  border-radius: 70px;
 }
 
 .flex-container {
@@ -43,7 +49,7 @@ header {
   align-items: center;
 }
 
-.park-1 {
+/* .park-1 {
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
@@ -97,4 +103,4 @@ header {
   grid-column-end: 5;
   grid-row-start: 2;
   grid-row-end: 3;
-}
+} */

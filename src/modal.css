@@ -8,6 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
 .modal-content {
@@ -15,8 +16,12 @@
   background-color: #fff;
 }
 
-.modal-header, .modal-footer {
-  padding: 10px;
+.modal-header {
+  padding: 20px;
+}
+
+.modal-footer {
+  padding-bottom: 30px;
 }
 
 .modal-title {
@@ -32,4 +37,9 @@
 .modal.show {
   opacity: 1;
   pointer-events: visible;
+}
+
+.button {
+  border-radius: 5px;
+  padding: 10px;
 }
